@@ -4,12 +4,12 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Writer's Word | Write Select</title>
+    {% load static %}
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="write_picker.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="{% static 'our_stories/css/write_picker.css' %}"/>
     <script src="main.js"></script>
 </head>
 <body>
-    
 
     <!----------------------HEADER----------------------->
         <!--The header will let you navigate to different pages on the site-->
@@ -65,13 +65,36 @@
                 </div>
 
                 <div class="selector">
-                    <h1 class="genre">Story Genre</h1>
-
+                    
+                        <h1 class="genre">Story Genre</h1>
+                    <div class="genre_box_contain">
+                        <div class="genre_box">
+                            <h2>Fiction</h2>
+                        </div>
+                        <div class="genre_box">
+                            <h2>Sci-Fi</h2>
+                        </div>
+                        <div class="genre_box">
+                            <h2>Fantasy</h2>
+                        </div>
+                        <div class="genre_box">
+                            <h2>Poetry</h2>
+                        </div>
+                        <div class="genre_box">
+                            <h2>Mystery</h2>
+                        </div>
+                        <div class="genre_box">
+                            <h2>Supernatural</h2>
+                        </div>
+                        <div class="genre_box">
+                            <h2>Horror</h2>
+                        </div>
+                        <div class="genre_box">
+                            <h2>Random!</h2>
+                        </div>
+                    </div>
                 </div>
 
-                <div>
-
-                </div>
 
                 <form action="/login" method="post">
             
