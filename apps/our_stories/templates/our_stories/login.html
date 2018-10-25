@@ -223,11 +223,10 @@ p{
 
 
             <!---------Registration Form--------->
-            <form action="/new_user" method="post">
+            <form action="/create" method="post">
                 {% csrf_token %}
-
-                <input type="text" name='name'
-                placeholder="Enter name">
+                <input type="text" name='email'
+                placeholder="Enter email">
                 <input type="text" name='username'
                 placeholder="Enter username">
                 <input type="password" name='password' placeholder="Password">
