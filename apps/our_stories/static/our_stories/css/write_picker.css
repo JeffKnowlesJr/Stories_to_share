@@ -1,0 +1,172 @@
+*{
+    font-family: 'Roboto Slab', serif;
+    /* outline: 1px solid green; */
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+    color:rgb(43, 42, 42);
+    /* outline: 1px solid gold; */
+}
+
+html{
+    height:100%;
+}
+
+body{
+    width:100%;
+    height:100%;
+    background-color:rgb(201, 201, 201);
+}
+
+/* <<-------------------Header------------------->>*/
+.header{
+    width:100%;
+    background-color: rgba(255, 255, 255, 0.973);
+    color:rgb(43, 42, 42);
+    padding:20px;
+    width:100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header h3{
+    padding-top: 8px;
+}
+
+.nav_bar{
+    float:right;
+}
+
+.header ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.header li {
+    float: left;
+}
+
+.header li a {
+    display: block;
+    color:rgb(43, 42, 42);
+    text-align: center;
+    padding: 10px 16px;
+    border-radius: 3px;
+    text-decoration: none;
+    font-size: 18px;
+    transition:.3s;
+}
+
+.header li a:hover:not(.active) {
+    background-color: rgb(236, 235, 235);
+}
+
+.active {
+    background-color: rgb(87, 135, 190);
+}
+
+
+/* <<------------------Container------------------>>*/
+
+.main_container{
+    width:90%;
+    height:100%;
+    margin:auto;
+}
+
+/* <<---------------User History--------------->>*/
+
+.storyselect_tile{
+    width:60%;
+    min-height:300px;
+    margin:20px auto;
+    border-radius: 2px;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.selection_tile{
+    width:90%;
+    min-height:800px;
+    margin:25px 0px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+.selection_tile > h1{
+    text-align: center;
+    background-color:rgb(53, 88, 128);
+    width:100%;
+    padding:15px 0px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    color:rgba(255, 255, 255, 0.87);
+}
+
+.selector{
+    width:80%;
+    height:150px;
+    margin:40px auto;
+    border-radius: 2px;
+    box-shadow: 0px 0px 40px rgb(196, 196, 196);
+}
+
+.selector h1{
+    text-align: center;
+    font-size: 18px;
+    width:100%;
+    padding:15px 0px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    color:rgba(255, 255, 255, 0.87);
+}
+
+.button_contain{
+    display:flex;
+    justify-content: space-evenly;
+    margin-top: 25px;
+}
+
+.group{
+    background-color:rgb(40, 133, 79);
+}
+
+.size{
+    background-color:rgb(40, 96, 133);
+}
+
+.genre{
+    background-color:rgb(204, 112, 58);
+}
+
+ul button{
+    border: 2px solid grey;
+    border-radius: 3px;
+    height:50px;
+    width:100px;
+    font-size: 16px;
+}
+
+
+.submit_button{
+    display:block;
+    width:65%;
+    height:60px;
+    margin:40px auto 20px auto;
+    background-color: rgb(82, 156, 109);
+    color:white;
+    border:none;
+    border-radius: 30px;
+    outline:none;
+    font-size: 18px;
+    transition: all 0.3s ease 0s;
+}
+.submit_button:hover{
+    background-color:  rgb(77, 56, 80);
+}
+
