@@ -57,7 +57,7 @@ def process_login(request):
             return redirect('/login')
 
 def write(request):
-    return render(request, 'write_picker.html')
+    return render(request, 'our_stories/write_picker.html')
 
 def explore(request):
     return HttpResponse("Page under conflagration")
