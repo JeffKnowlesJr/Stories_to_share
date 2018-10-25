@@ -6,8 +6,9 @@
     <title>Writer's Word | User Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
+    {% load static %}
     <!--Main CSS Styling-->
-    <link rel="stylesheet" type="text/css" media="screen" href="profile.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href= "{% static 'our_stories/css/profile.css' %}" />
 
     <!--Fonts-->
     <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
@@ -18,9 +19,9 @@
 
 <!----------------------HEADER----------------------->
         <!--The header will let you navigate to different pages on the site-->
-        
+
         <div class="header">
-            
+
             <h3>Stories to Share</h3>
 
                 <div class="nav_bar">
@@ -31,7 +32,7 @@
                     <li><a href="/profile/userid">Profile</a></li>
                     <li><a href="/login">Login</a></li>
                   </ul>
-            
+
                 </div>
 
         </div>
@@ -72,7 +73,7 @@
                     </div>
                 </div>
 
-                
+
             </div>
 
         </div>
@@ -82,7 +83,7 @@
         <div class="recent_tile">
 
             <div class="story_tile">
-                
+
                 <div class="story_img">
                     <img src="img/fantasy.jpg" alt="">
                 </div>
@@ -92,7 +93,7 @@
             </div>
 
             <div class="story_tile">
-                
+
                 <div class="story_img">
                     <img src="img/fantasy.jpg" alt="">
                 </div>
@@ -102,7 +103,7 @@
             </div>
 
             <div class="story_tile">
-                
+
                 <div class="story_img">
                     <img src="img/fantasy.jpg" alt="">
                 </div>
@@ -118,15 +119,15 @@
         <!--Dashboard Will Contain Recent Stories From People That You Follow, Stories of Genres you Follow, and comments associated with them.-->
 
         <div class="dashboard_tile">
-            
+
             <div class="timeline_tile">
                 <h1>User Timeline</h1>
-                
+
             </div>
 
         </div>
 
     </div>
-    
+
 </body>
 </html>

@@ -3,6 +3,8 @@ from django.db import models
 from datetime import datetime
 import re
 
+EMAILREGEX = re.compile(r'^[a-zA-Z0-9.+-]+@[a-zA-Z0-9_.+-]+.[a-zA-Z]+$')
+
 # USER VALIDATION
 class UserManager(models.Manager):
     def basic_validator(self, post_data):
@@ -15,7 +17,7 @@ class UserManager(models.Manager):
         elif User.objects.filter(username = post_data['username']):
             errors['username'] = 'Username is already taken, please choose another.'
         #EMAIL VALIDATION
-        if len(post_data["email"]) < 1:
+        if len(post_data['email']) < 1:
             errors['email'] = 'Email address is required.'
         elif not EMAILREGEX.match(post_data['email']):
             errors['email'] = 'Valid email address is required.'
