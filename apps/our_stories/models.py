@@ -31,15 +31,14 @@ class UserManager(models.Manager):
         if post_data['confirm_password'] != post_data['password']:
             errors['password'] = 'Passwords do not match.'
         return errors
+
     def login_validator(self, post_data):
         errors = {}
-        #EMAIL VALIDATION
-        if len(post_data["email"]) < 1:
-            errors['email'] = 'Email address is required.'
-        elif not EMAILREGEX.match(post_data['email']):
-            errors['email'] = 'Valid email address is required.'
-        elif not User.objects.filter(email = post_data['email']):
-            errors['email'] = 'Email address was not found.'
+        #USERNAME VALIDATION
+        if len(post_data['username']) < 1:
+            errors['username'] = 'Username is required.'
+        elif not User.objects.filter(username = post_data['username']):
+            errors['username'] = 'Username was not found.'
         #PASSWORD VALIDATION
         if len(post_data['password']) < 1:
             errors['password'] = 'Password is required.'

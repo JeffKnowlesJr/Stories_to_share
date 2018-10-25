@@ -24,8 +24,14 @@
         <li><a href="/home">Home</a></li>
         <li><a href="/write">Write</a></li>
         <li><a href="/explore">Explore</a></li>
-        <li><a href="/profile/userid">Profile</a></li>
-        <li><a href="/login">Login</a></li>
+        {% if request.session.id %}
+          <li><a href="/profile/{{request.session.id}}">Profile</a></li>
+        {% endif %}
+        {% if request.session.id %}
+          <li><a href="/logout">Logout</a></li>
+        {% else %}
+          <li><a href="/login">Login</a></li>
+        {% endif %}
       </ul>
 
     </div>
@@ -58,10 +64,10 @@
                     <h1>Don't look yet! Your story will appear once finished.</h1>
                 </div>
         </div>
-        
+
       <div class="main_info_text">
         <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perspiciatis earum, nesciunt illum reprehenderit dolorum vel velit distinctio nihil quaerat aliquam aperiam doloribus magnam ut sint porro blanditiis mollitia delectus pariatur.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Totam quibusdam fugiat non esse laborum ipsam saepe ex quo quos id quasi, est omnis ratione officiis. Doloremque, ipsum! Placeat, voluptatum amet.</p>
-       
+
       </div>
     </div>
 

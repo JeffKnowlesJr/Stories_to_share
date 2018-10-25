@@ -17,16 +17,22 @@
     <!--Header-->
   <div class="header">
         <h3>Stories to Share</h3>
-    
+
         <div class="nav_bar">
           <ul>
             <li><a href="/home">Home</a></li>
             <li><a href="/write">Write</a></li>
             <li><a href="/explore">Explore</a></li>
-            <li><a href="/profile/userid">Profile</a></li>
-            <li><a href="/login">Login</a></li>
+            {% if request.session.id %}
+              <li><a href="/profile/{{request.session.id}}">Profile</a></li>
+            {% endif %}
+            {% if request.session.id %}
+              <li><a href="/logout">Logout</a></li>
+            {% else %}
+              <li><a href="/login">Login</a></li>
+            {% endif %}
           </ul>
-    
+
         </div>
     </div>
 
@@ -64,7 +70,7 @@
                 <h3>Member Login</h3>
 
                 <!---------Login Form--------->
-                <form action="/login" method="post">
+                <form action="/process_login" method="post">
                     {% csrf_token %}
                     <input type="text" name='username'
                     placeholder="Username">

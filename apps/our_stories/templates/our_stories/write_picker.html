@@ -13,9 +13,9 @@
 
     <!----------------------HEADER----------------------->
         <!--The header will let you navigate to different pages on the site-->
-        
+
         <div class="header">
-            
+
             <h3>Stories to Share</h3>
 
                 <div class="nav_bar">
@@ -23,10 +23,16 @@
                     <li><a href="/home">Home</a></li>
                     <li><a href="/write">Write</a></li>
                     <li><a href="/explore">Explore</a></li>
-                    <li><a href="/profile/userid">Profile</a></li>
-                    <li><a href="/login">Login</a></li>
+                    {% if request.session.id %}
+                      <li><a href="/profile/{{request.session.id}}">Profile</a></li>
+                    {% endif %}
+                    {% if request.session.id %}
+                      <li><a href="/logout">Logout</a></li>
+                    {% else %}
+                      <li><a href="/login">Login</a></li>
+                    {% endif %}
                   </ul>
-            
+
                 </div>
 
         </div>
@@ -35,20 +41,20 @@
     <div class="main_container">
 
         <div class="storyselect_tile">
-            
+
             <div class="selection_tile">
                 <h1>Write Select</h1>
-                
+
                 <div class="selector">
                     <h1 class="group">Group Size</h1>
 
                     <div class="button_contain">
-                    
+
                         <button>Solo</button>
                         <button>2 Writers</button>
                         <button>4 Writers</button>
                         <button>8+ Writers</button>
-                        
+
                     </div>
                 </div>
 
@@ -60,13 +66,13 @@
                         <button>Short (500 words)</button>
                         <button>Long (1000 words)</button>
                         <button>Novel! (1000+ words)</button>
-                      
+
                     </div>
 
                 </div>
 
                 <div class="selector">
-                    
+
                         <h1 class="genre">Story Genre</h1>
                     <div class="genre_box_contain">
                         <div class="genre_box">
@@ -98,7 +104,7 @@
 
 
                 <form action="/login" method="post">
-            
+
                     <input class="submit_button" type="submit" value = 'Start Writing!'>
 
                 </form>
@@ -106,7 +112,7 @@
             <!--END OF SELECT TILE-->
             </div>
 
-           
+
 
 
 

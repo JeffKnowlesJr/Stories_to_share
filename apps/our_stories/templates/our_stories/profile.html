@@ -29,8 +29,14 @@
                     <li><a href="/home">Home</a></li>
                     <li><a href="/write">Write</a></li>
                     <li><a href="/explore">Explore</a></li>
-                    <li><a href="/profile/userid">Profile</a></li>
-                    <li><a href="/login">Login</a></li>
+                    {% if request.session.id %}
+                      <li><a href="/profile/{{request.session.id}}">Profile</a></li>
+                    {% endif %}
+                    {% if request.session.id %}
+                      <li><a href="/logout">Logout</a></li>
+                    {% else %}
+                      <li><a href="/login">Login</a></li>
+                    {% endif %}
                   </ul>
 
                 </div>

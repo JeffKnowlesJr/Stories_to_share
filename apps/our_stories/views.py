@@ -5,6 +5,10 @@ import bcrypt
 
 # INDEX PAGE
 def index(request):
+    try:
+        print(request.session['id'])
+    except KeyError:
+        print('no session id')
     return render(request, 'our_stories/index.html')
 
 # CREATE NEW USER
@@ -50,9 +54,10 @@ def process_login(request):
         if bcrypt.checkpw(request.POST['password'].encode('utf-8'), user.password.encode('utf-8')):
             request.session['id'] = user.id
             request.session['username'] = user.username
-            return redirect('/profile')
+            return redirect(f'/profile/{user.id}')
         else:
             messages.error(request, 'Incorrect password.')
+            pr('error bad login')
             return redirect('/login')
 
 def write(request):
