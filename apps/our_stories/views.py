@@ -60,6 +60,9 @@ def process_login(request):
             pr('error bad login')
             return redirect('/login')
 
+def write_process(request):
+    return render(request, 'our_stories/write_zone.html')
+
 def write(request):
     return render(request, 'our_stories/write_picker.html')
 

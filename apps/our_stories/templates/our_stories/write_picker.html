@@ -49,11 +49,20 @@
                     <h1 class="group">Group Size</h1>
 
                     <div class="button_contain">
-
-                        <button>Solo</button>
-                        <button>2 Writers</button>
-                        <button>4 Writers</button>
-                        <button>8+ Writers</button>
+                        <!-- ONE PLAYER -->
+                        <input type="radio" name="group" value="solo" id="solo" class="test">
+                        <label for="solo" class="button">
+                          Solo
+                        </label>
+                        <!-- TWO PLAYERS -->
+                        <input type="radio" name="group" value="solo" id="two" class="test">
+                        <label for="two" class="button">2 Writers</label>
+                        <!-- FOUR PLAYERS -->
+                        <input type="radio" name="group" value="solo" id="four" class="test">
+                        <label for="four" class="button">4 Writers</label>
+                        <!-- MANY PLAYERS -->
+                        <input type="radio" name="group" value="solo" id="many" class="test">
+                        <label for="many" class="button">8+ Writers</label>
 
                     </div>
                 </div>
@@ -62,10 +71,10 @@
                     <h1 class="size">Story Size</h1>
                     <div class="button_contain">
 
-                        <button>Really Short (20 words)</button>
-                        <button>Short (500 words)</button>
-                        <button>Long (1000 words)</button>
-                        <button>Novel! (1000+ words)</button>
+                        <label for="tiny" class="button">Really Short (20 words)</label>
+                        <label for="short" class="button">Short (500 words)</label>
+                        <label for="long" class="button">Long (1000 words)</label>
+                        <label for="novel" class="button">Novel! (1000+ words)</label>
 
                     </div>
 
@@ -87,6 +96,8 @@
                         <div class="genre_box">
                             <h2>Poetry</h2>
                         </div>
+                    </div>
+                    <div class="genre_box_contain">
                         <div class="genre_box">
                             <h2>Mystery</h2>
                         </div>
@@ -99,12 +110,12 @@
                         <div class="genre_box">
                             <h2>Random!</h2>
                         </div>
-                    </div>
+
                 </div>
 
 
-                <form action="/login" method="post">
-
+                <form action="/write_process" method="post">
+                    {% csrf_token %}
                     <input class="submit_button" type="submit" value = 'Start Writing!'>
 
                 </form>
