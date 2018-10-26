@@ -69,7 +69,9 @@ class Genre(models.Model):
 
 class Story(models.Model):
     users = models.ManyToManyField(User, related_name = "stories")
-    genres = models.ManyToManyField(Genre, related_name = "stories")
+    genre = models.ManyToManyField(Genre, related_name = "stories")
+    group = models.CharField(max_length=255)
+    story_length = models.CharField(max_length=255)
 
 class Wall(models.Model):
     user = models.ForeignKey(User, related_name="user", on_delete = models.CASCADE)
