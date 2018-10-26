@@ -48,6 +48,9 @@
                 <div class="selector">
                     <h1 class="group">Group Size</h1>
 
+                    <!--FORM START-->
+                    <form action="/write_process" method="post">
+                    {% csrf_token %}
                     <div class="button_contain">
 
                         <!-- ONE PLAYER -->
@@ -56,13 +59,13 @@
                           Solo
                         </label>
                         <!-- TWO PLAYERS -->
-                        <input type="radio" name="group" value="solo" id="two" class="test">
+                        <input type="radio" name="group" value="two" id="two" class="test">
                         <label for="two" class="button">2 Writers</label>
                         <!-- FOUR PLAYERS -->
-                        <input type="radio" name="group" value="solo" id="four" class="test">
+                        <input type="radio" name="group" value="four" id="four" class="test">
                         <label for="four" class="button">4 Writers</label>
                         <!-- MANY PLAYERS -->
-                        <input type="radio" name="group" value="solo" id="many" class="test">
+                        <input type="radio" name="group" value="many" id="many" class="test">
                         <label for="many" class="button">8+ Writers</label>
 
                     </div>
@@ -123,8 +126,7 @@
                 </div>
 
 
-                <form action="/write_process" method="post">
-                    {% csrf_token %}
+                
                     <input class="submit_button" type="submit" value = 'Start Writing!'>
 
                 </form>

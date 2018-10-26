@@ -156,7 +156,7 @@ body{
 
 .genre_box{
     height:80px;
-    width:160px;
+    width:300px;
     margin: 30px 5px 20px 5px;
     border-radius: 10px;
     border: 2px solid grey;
@@ -212,7 +212,7 @@ body{
     display:block;
     width:65%;
     height:60px;
-    margin:10px auto 20px auto;
+    margin:50px auto 60px auto;
     background-color: rgb(82, 156, 109);
     color:white;
     border:none;

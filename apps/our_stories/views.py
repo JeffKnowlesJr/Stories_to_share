@@ -1,6 +1,7 @@
 from django.shortcuts import render, HttpResponse, redirect
 from .models import *
 from django.contrib import messages
+from random import randint
 import bcrypt
 
 # INDEX PAGE
@@ -61,10 +62,28 @@ def process_login(request):
             return redirect('/login')
 
 def write_process(request):
+    response = f"{request.POST['group']},{request.POST['story_length']},{request.POST['genre']}"
+
+    #Create a story object
+    newStory = Story.objects.create(users= this_user, group=request.POST['group'], story_length = request.POST['story_length'], genre = this_genre)
+
+    this_genre = Genre.objects.get(genre = request.POST['genre'])
+
+    this_user = User.objects.get(request.session['id'])
+
+    newStory.users.add(this_user)
+
+    all_tropes = this_genre.tropes.all()
+    trope_range = len(all_tropes)-1
+    random_trope = randint(0,trope_range)
+
+    this_trope = this_genre.tropes.get(id = random_trope)
+
     return render(request, 'our_stories/write_zone.html')
 
 def write(request):
     return render(request, 'our_stories/write_picker.html')
 
 def explore(request):
+
     return HttpResponse("Page under conflagration")
