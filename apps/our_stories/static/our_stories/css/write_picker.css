@@ -30,6 +30,8 @@ body{
     width:100%;
     display: flex;
     justify-content: space-between;
+    position: fixed;
+    top:0;
 }
 
 .header h3{
@@ -74,15 +76,15 @@ body{
 /* <<------------------Container------------------>>*/
 
 .main_container{
-    width:90%;
+    width:94%;
     height:100%;
-    margin:auto;
+    margin:100px auto;
 }
 
 /* <<---------------User History--------------->>*/
 
 .storyselect_tile{
-    width:75%;
+    width:100%;
     min-height:300px;
     margin:20px auto;
     border-radius: 2px;
@@ -110,8 +112,9 @@ body{
 
 .selector{
     width:80%;
-    height:220px;
+    min-height:220px;
     margin:40px auto;
+    padding-bottom: 10px;
     border-radius: 2px;
     box-shadow: 0px 0px 40px rgb(153, 153, 153);
 }
@@ -149,16 +152,16 @@ body{
 .genre_box_contain{
     display:flex;
     justify-content: space-evenly;
-    padding:0px 10px;
 }
 
 .genre_box{
-    height:100px;
+    height:80px;
     width:160px;
     margin: 30px 5px 20px 5px;
     border-radius: 10px;
     border: 2px solid grey;
     border-radius: 3px;
+    padding-bottom: 40px;
 }
 
 .genre_box:hover{
@@ -168,13 +171,13 @@ body{
 
 .genre_box h2{
     text-align: center;
-    padding-top: 40px;
+    padding-top: 30px;
     font-weight: 100;
     font-size: 18px;
 }
 
 
-button{
+.button{
     border: 2px solid grey;
     border-radius: 3px;
     height:80px;
@@ -182,12 +185,22 @@ button{
     font-size: 16px;
     margin:15px 1%;
     font-weight: 600;
-    transition: .2s;
+    transition: .5s;
 }
 
-button:hover{
-    background-color: rgb(132, 157, 190);
-    border:none;
+.button:hover{
+  background-color: rgb(200, 210, 255);
+  border: 2px solid white;
+}
+
+.test {
+  opacity: 0;
+  position: absolute;
+}
+
+.test:checked + label {
+  background-color: rgb(132, 157, 190);
+  border: 2px solid white;
 }
 
 
@@ -195,7 +208,7 @@ button:hover{
     display:block;
     width:65%;
     height:60px;
-    margin:40px auto 60px auto;
+    margin:10px auto 20px auto;
     background-color: rgb(82, 156, 109);
     color:white;
     border:none;
@@ -208,4 +221,3 @@ button:hover{
 .submit_button:hover{
     background-color:  rgb(77, 56, 80);
 }
-

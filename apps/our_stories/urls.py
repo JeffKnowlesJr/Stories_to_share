@@ -12,5 +12,6 @@ urlpatterns = [
     path('write', views.write),
     path('write_story/<int:id>', views.write_story),
     path('explore', views.explore),
-    path('create', views.create)
+    path('create', views.create),
+    path('write_process', views.write_process)
     ]
