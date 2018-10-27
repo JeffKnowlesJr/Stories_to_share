@@ -61,28 +61,44 @@ def process_login(request):
             pr('error bad login')
             return redirect('/login')
 
+def write(request):
+    
+    return render(request, 'our_stories/write_picker.html')
+
+
 def write_process(request):
-    response = f"{request.POST['group']},{request.POST['story_length']},{request.POST['genre']}"
 
     #Create a story object
-    newStory = Story.objects.create(users= this_user, group=request.POST['group'], story_length = request.POST['story_length'], genre = this_genre)
+
+    print("Executing write process")
 
     this_genre = Genre.objects.get(genre = request.POST['genre'])
+    print("The genre chosen is: ", this_genre.genre)
 
-    this_user = User.objects.get(request.session['id'])
+    this_user = User.objects.get(id = request.session['id'])
+    print("This user is: ", this_user.username)
 
-    newStory.users.add(this_user)
+    # newStory = Story.objects.create(users= this_user, group=request.POST['group'], story_length = request.POST['story_length'], genre = this_genre)
+
+    # newStory.users.set(this_user)
 
     all_tropes = this_genre.tropes.all()
+
     trope_range = len(all_tropes)-1
     random_trope = randint(0,trope_range)
 
-    this_trope = this_genre.tropes.get(id = random_trope)
+    this_trope = this_genre.tropes.get(id = random_trope).trope
 
-    return render(request, 'our_stories/write_zone.html')
+    request.session['trope'] = this_trope
 
-def write(request):
-    return render(request, 'our_stories/write_picker.html')
+    print(this_trope)
+
+    context = {
+        "trope":request.session['trope']
+    }
+
+    return render(request, 'our_stories/write_zone.html',context)
+
 
 def explore(request):
 

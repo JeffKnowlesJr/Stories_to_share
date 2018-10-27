@@ -51,8 +51,11 @@
 
 
       <div class=>
+        <form action="write">
+          {% csrf_token %}
         <input class="central_input" type="text" placeholder="Go on, try out your first sentence...">
         <button class="start_button"> New Story!</button>
+        </form>
       </div>
     </div>
 
@@ -64,7 +67,7 @@
         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Culpa numquam accusamus, molestiae asperiores excepturi facilis temporibus quisquam aut saepe natus itaque cupiditate deserunt ipsa, quos suscipit exercitationem assumenda distinctio omnis.</p>
       </div>
     </div>
-
+    
   </div>
 
 
