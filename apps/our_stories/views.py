@@ -6,6 +6,8 @@ import bcrypt
 
 # INDEX PAGE
 def index(request):
+    print("\n<<--------------Rendering home page-------------->>\n")
+
     try:
         print(request.session['id'])
     except KeyError:
@@ -14,6 +16,8 @@ def index(request):
 
 # CREATE NEW USER
 def create(request):
+    print("\n<<--------------Executing new user process-------------->>\n")
+
     errors = User.objects.basic_validator(request.POST)
     if len(errors):
         for key, value in errors.items():
@@ -29,21 +33,31 @@ def create(request):
         return redirect(f'/profile/{user.id}')
 
 def profile(request, id):
+    print("\n<<--------------Rendering Profile-------------->>\n")
+
     return render(request, 'our_stories/profile.html')
 
 def write_story(request, id):
+    print("\n<<--------------Executing write process-------------->>\n")
+
     return HttpResponse("Page under conflagration")
 
 def login(request):
+    print("\n<<--------------Rendering Login-------------->>\n")
+
     return render(request, 'our_stories/login.html')
 
 # LOGOUT PROCESS
 def logout(request):
+    print("\n<<--------------Logged Out-------------->>\n")
+
     request.session.clear()
     return redirect('/')
 
 # LOGIN PROCESS
 def process_login(request):
+    print("\n<<--------------Executing login process-------------->>\n")
+
     errors = User.objects.login_validator(request.POST)
     if len(errors):
         for key, value in errors.items():
@@ -62,26 +76,31 @@ def process_login(request):
             return redirect('/login')
 
 def write(request):
+    print("\n<<--------------Rendering write page-------------->>\n")
     
     return render(request, 'our_stories/write_picker.html')
 
 
 def write_process(request):
+    print("\n<<--------------Executing write process-------------->>\n")
 
-    #Create a story object
-
-    print("Executing write process")
-
+    #Create a genre object
     this_genre = Genre.objects.get(genre = request.POST['genre'])
     print("The genre chosen is: ", this_genre.genre)
 
+    #Create a user object
     this_user = User.objects.get(id = request.session['id'])
     print("This user is: ", this_user.username)
 
-    # newStory = Story.objects.create(users= this_user, group=request.POST['group'], story_length = request.POST['story_length'], genre = this_genre)
+    #Create a story object
+    this_story = Story.objects.create(group=request.POST['group'], story_length = request.POST['story_length'])
 
-    # newStory.users.set(this_user)
+    this_story.genres.add(this_genre)
+    this_story.users.add(this_user)
 
+    print("CREATED NEW STORY: ", this_story)
+
+    #Generate a random trope
     all_tropes = this_genre.tropes.all()
 
     trope_range = len(all_tropes)-1
@@ -89,6 +108,7 @@ def write_process(request):
 
     this_trope = this_genre.tropes.get(id = random_trope).trope
 
+    #Store random trope in session
     request.session['trope'] = this_trope
 
     print(this_trope)
