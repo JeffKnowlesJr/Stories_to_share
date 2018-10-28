@@ -9,9 +9,9 @@ def index(request):
     print("\n<<--------------Rendering home page-------------->>\n")
 
     try:
-        print(request.session['id'])
+        print("User id:", request.session['id'],"\n")
     except KeyError:
-        print('no session id')
+        print('no session id\n')
     return render(request, 'our_stories/index.html')
 
 # CREATE NEW USER
@@ -22,12 +22,12 @@ def create(request):
     if len(errors):
         for key, value in errors.items():
             messages.error(request, value)
-        print(errors)
+        print("ERRORS IN FORM: ", errors)
         return redirect('/login')
     else:
         pass_hash = bcrypt.hashpw(request.POST['password'].encode('utf-8'), bcrypt.gensalt())
         user = User.objects.create(username = request.POST['username'], email = request.POST['email'], password = pass_hash.decode('utf-8'))
-        print(user)
+        print("NEW USER CREATED: ", user)
         request.session['id'] = user.id
         request.session['username'] = user.username
         return redirect(f'/profile/{user.id}')
@@ -35,7 +35,12 @@ def create(request):
 def profile(request, id):
     print("\n<<--------------Rendering Profile-------------->>\n")
 
-    return render(request, 'our_stories/profile.html')
+    this_user = User.objects.get(id=id)
+
+    context = {
+        "this_user":this_user
+    }
+    return render(request, 'our_stories/profile.html',context)
 
 def write_story(request, id):
     print("\n<<--------------Executing write process-------------->>\n")
@@ -103,15 +108,27 @@ def write_process(request):
     #Generate a random trope
     all_tropes = this_genre.tropes.all()
 
-    trope_range = len(all_tropes)-1
-    random_trope = randint(0,trope_range)
+    #---->Append all tropes from genre to array
+    trope_arr = []
+    for i in all_tropes:
+        trope_arr.append(i.id)
+        print("Trope array: ", trope_arr)
 
-    this_trope = this_genre.tropes.get(id = random_trope).trope
+    #---->Get range of the array
+    trope_range = len(trope_arr)
+    print("Trope range: ", trope_range)
+
+    #---->Generate random trope from arr length
+    random_trope = randint(0,trope_range-1)
+    print("Random trope: ", random_trope)
+
+    #---->Set this_trope equal to rand point in arr
+    this_trope = this_genre.tropes.get(id = trope_arr[random_trope]).trope
+
+    print("Printing this trope: ", this_trope)
 
     #Store random trope in session
     request.session['trope'] = this_trope
-
-    print(this_trope)
 
     context = {
         "trope":request.session['trope']
