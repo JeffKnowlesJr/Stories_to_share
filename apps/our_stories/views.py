@@ -42,11 +42,6 @@ def profile(request, id):
     }
     return render(request, 'our_stories/profile.html',context)
 
-def write_story(request, id):
-    print("\n<<--------------Executing write process-------------->>\n")
-
-    return HttpResponse("Page under conflagration")
-
 def login(request):
     print("\n<<--------------Rendering Login-------------->>\n")
 
@@ -79,6 +74,11 @@ def process_login(request):
             messages.error(request, 'Incorrect password.')
             pr('error bad login')
             return redirect('/login')
+
+def write_story(request, id):
+    print("\n<<--------------Executing write process-------------->>\n")
+
+    return HttpResponse("Page under conflagration")
 
 def write(request):
     print("\n<<--------------Rendering write page-------------->>\n")
@@ -130,13 +130,22 @@ def write_process(request):
     #Store random trope in session
     request.session['trope'] = this_trope
 
-    context = {
-        "trope":request.session['trope']
-    }
+    return render(request, 'our_stories/write_zone.html')
 
-    return render(request, 'our_stories/write_zone.html',context)
+def sentence_process(request):
+    response="Sentence processed"
+    print("Printing sentence to be processed: ", request.POST['sentence'])
 
+    request.session['sentence'] = request.POST['sentence']
+
+    return render(request, 'our_stories/write_zone.html')
 
 def explore(request):
 
-    return HttpResponse("Page under conflagration")
+    all_stories = Story.objects.all()
+
+    context = {
+        "all_stories":all_stories
+    }
+
+    return render(request,"our_stories/explore.html", context)

@@ -1,0 +1,141 @@
+
+* {
+    font-family: 'Roboto Slab', serif;
+    /* outline: 1px solid green; */
+    margin: 0;
+    padding: 0;
+    vertical-align: top;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 100;
+  }
+  
+  body{
+      width:100%;
+  }
+  
+  .header{
+      width:100%;
+      background-color: rgba(255, 255, 255, 0.973);
+      color:rgb(43, 42, 42);
+      padding:20px;
+      width:100%;
+      position: fixed;
+      display: flex;
+      justify-content: space-between;
+  }
+  
+  .header h3{
+      padding-top: 8px;
+  }
+  
+  .nav_bar{
+      float:right;
+  }
+  
+  ul {
+      list-style-type: none;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+  }
+  
+  li {
+      float: left;
+  }
+  
+  li a {
+      display: block;
+      color:rgb(43, 42, 42);
+      text-align: center;
+      padding: 10px 16px;
+      border-radius: 3px;
+      text-decoration: none;
+      font-size: 18px;
+      transition:.3s;
+  }
+  
+  li a:hover:not(.active) {
+      background-color: rgb(236, 235, 235);
+  }
+  
+  .active {
+      background-color: rgb(87, 135, 190);
+  }
+  
+  .central_container{
+      width:100%;
+      height:930px;
+      background-image: linear-gradient(20deg, #361d47 50%, #7642a0 30%);
+      padding-top: 200px;
+  }
+  
+  .central_text{
+      padding:30px 200px 60px 200px;
+      height:200px;
+  }
+  
+  .central_text h3{
+      color:rgb(247, 247, 247);
+      font-size: 40px;
+      text-align: center;
+      margin-bottom: 30px;
+  }
+  
+  .central_text p{
+      color:rgb(247, 247, 247);
+      font-size: 24px;
+      text-align: center;
+      padding-top: 40px;
+  }
+  
+  .main_info_text{
+      width:50%;
+      margin:auto;
+  }
+  
+  .main_info_text h1{
+      text-align: center;
+      margin-bottom: 60px;  
+  }
+  
+  .main_info_text p{
+     padding:16px; 
+     font-size: 18px;
+     width:50%;
+     margin:auto;
+     font-size: 24px;
+  }
+
+  .timeline_tile{
+    width:70%;
+    min-height:600px;
+    margin:auto;
+    background-color: white;
+    border-radius: 2px;
+    box-shadow: 0px 0px 50px rgb(29, 29, 29);
+}
+
+.timeline_tile h1{
+    text-align: center;
+    color:rgb(43, 42, 42);
+    background-color:rgb(62, 136, 69);
+    width:100%;
+    padding:15px 0px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    color:rgba(255, 255, 255, 0.87);
+}
+
+.story_explore{
+    text-align: center;
+    height:300px;
+    border:1px solid rgb(122, 122, 122);
+    border-radius: 4px;
+    margin:40px auto;
+    width:65%;
+}
+
+.story_explore h1{
+    background-color: rgb(96, 60, 119);
+}
