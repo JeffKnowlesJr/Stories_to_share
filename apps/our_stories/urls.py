@@ -11,6 +11,7 @@ urlpatterns = [
     path('profile/<int:id>', views.profile),
     path('write', views.write),
     path('write_story/<int:id>', views.write_story),
+    path('sentence_process', views.sentence_process),
     path('explore', views.explore),
     path('create', views.create),
     path('write_process', views.write_process)

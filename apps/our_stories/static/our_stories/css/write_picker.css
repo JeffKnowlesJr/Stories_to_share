@@ -152,6 +152,7 @@ body{
 .genre_box_contain{
     display:flex;
     justify-content: space-evenly;
+    padding:0 20px;
 }
 
 .genre_box{

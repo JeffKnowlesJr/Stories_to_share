@@ -7,11 +7,11 @@
 
   {% load static %}
   <!--Main CSS Styling-->
-  <link rel="stylesheet" type="text/css" media="screen" href= "{% static 'our_stories/css/write_zone.css' %}" />
+  <link rel="stylesheet" type="text/css" media="screen" href= "{% static 'our_stories/css/explore.css' %}" />
   <!--Fonts-->
   <link href="https://fonts.googleapis.com/css?family=Roboto+Slab:400,700" rel="stylesheet">
 
-  <title>Stories to Share | Write!</title>
+  <title>Stories to Share | Explore</title>
 </head>
 <body>
 
@@ -43,42 +43,18 @@
 
     <!--Container for -->
     <div class="central_container">
-      <div class="central_text">
-        <h3>{{request.session.trope}}</h3>
+        <div class="timeline_tile">
+            <h1>Explore</h1>
 
-        {% if request.session.sentence is False %}
-        <p>Player 2 will submit their sentence here...</p>
-        {% endif %}
-        
+            {% for i in all_stories %}
+            <div class="story_explore">
+                <h1>Story id: {{i.id}}</h1>
+            </div>
 
-        {% if request.session.sentence %}
-        <p>{{request.session.sentence}}</p>
-        {% endif %}
-      </div>
-
-      <div>
-        <form action="sentence_process" method="post">
-          {% csrf_token %}
-          <input class="central_input" type="text" name="sentence" placeholder="Start your sentence. There are 500 words left to go!">
-          <button class="start_button"> Enter your sentence </button>
-        </form>
-      </div>
+            {% endfor %}
+        </div>
     </div>
 
-    <div class="info_container">
-       
-
-      <div class="main_info_text">
-    
-      </div>
-    </div>
-
-  </div>
-
-
-  <!--Footer-->
-  <div class="footer">
-    <h3>Footer</h3>
   </div>
 
 </body>

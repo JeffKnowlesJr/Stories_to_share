@@ -134,7 +134,7 @@ li a:hover:not(.active) {
 
 .main_info_text{
     color:white;
-    width:50%;
+    width:45%;
     margin:auto;
 }
 
@@ -145,7 +145,7 @@ li a:hover:not(.active) {
 
 .main_info_text p{
    padding:16px; 
-   font-size: 18px;
+   font-size: 20px;
 }
 
 .footer{

@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>WishList Member Login and Registration</title>
+    <title>Stories to Share | Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     {% load static %}
     <!--Main CSS Styling-->
@@ -32,9 +32,15 @@
               <li><a href="/login">Login</a></li>
             {% endif %}
           </ul>
-
         </div>
     </div>
+        {% if messages %}
+        <div class="error_contain">
+            {% for message in messages %}
+                <p class="errors">{{ message }}</p> 
+            {% endfor %}
+        </div>
+        {% endif %}
 
     <div class="central_container">
 
@@ -57,10 +63,6 @@
                 <input type="password" name='confirm_password' placeholder="Confirm Password">
                 <input class="submit_button" type="submit" value = 'Create account'>
             </form>
-
-            <p>or</p>
-
-            <input class="facebook_button" type="submit" value = 'Register with Facebook'>
         </div>
 
 
@@ -79,8 +81,6 @@
 
                     <input class="submit_button" type="submit" value = 'Login'>
                 </form>
-                    <p>or</p>
-                <input class="facebook_button" type="submit" value = 'Login using Facebook'>
          </div>
 
 
